@@ -30,6 +30,8 @@ class Restaurants(models.Model):
     restaurant_type = models.ManyToManyField(RestaurantType)
     cuisine_type = models.ManyToManyField(CuisineType)
     rating = models.ManyToManyField(Rating)
+    def get_absolute_url(self):
+        return "/restaurants/%i/" % self.id 
     def __unicode__(self):
         return self.name
 
