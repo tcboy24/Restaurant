@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 {% block main %}
-<h1>{{ rests.name }}</h1>
-<strong>{{ rests.location }}</strong>
+<h1>{{ cuisine }}</h1>
+<ul> 
+{% for object in rests %}
+<li><a href="{{object.get_absolute_url }}">{{ object }}</a></li>
+{% endfor %}</ul>
 {% endblock %}
 {% block cuisines %}
 <h2> browse by cuisine </h2>

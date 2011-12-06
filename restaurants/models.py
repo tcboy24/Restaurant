@@ -11,16 +11,22 @@ class Location(models.Model):
 class Rating(models.Model):
     rating = models.CharField(max_length=200)
     rating_agency = models.CharField(max_length=200)
+    def get_absolute_url(self):
+        return "/ratings/%i/" % self.id
     def __unicode__(self):
         return self.rating
 
 class RestaurantType(models.Model):
     restaurant_type = models.CharField(max_length=200)
+    def get_absolute_url(self):
+        return "/restaurant-type/%i/" % self.id 
     def __unicode__(self):
         return self.restaurant_type
 
 class CuisineType(models.Model):
     cuisine_type = models.CharField(max_length=200)
+    def get_absolute_url(self):
+        return "/cuisines/%i/" % self.id 
     def __unicode__(self):
         return self.cuisine_type
 

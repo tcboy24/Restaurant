@@ -1,7 +1,10 @@
 {% extends "base.html" %}
 {% block main %}
-<h1>{{ rests.name }}</h1>
-<strong>{{ rests.location }}</strong>
+<h1>{{ restaurant }}</h1>
+<ul> 
+{% for object in rests %}
+<li><a href="{{object.get_absolute_url }}">{{ object }}</a></li>
+{% endfor %}</ul>
 {% endblock %}
 {% block cuisines %}
 <h2> browse by cuisine </h2>
@@ -12,6 +15,12 @@
 {% block restaurants %}
 <h2> browse by restaurant type </h2>
 <ul> {% for object in restaurants %}
+<li> <a href="{{object.get_absolute_url }}">{{ object }}</a> </li>
+{% endfor %}
+{% endblock %}
+{% block ratings %}
+<h2> browse by rating type </h2>
+<ul> {% for object in ratings %}
 <li> <a href="{{object.get_absolute_url }}">{{ object }}</a> </li>
 {% endfor %}
 {% endblock %}
